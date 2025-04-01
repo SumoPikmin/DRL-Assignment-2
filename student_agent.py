@@ -233,10 +233,21 @@ class Game2048Env(gym.Env):
 
 def get_action(state, score):
     env = Game2048Env()
+    legal_moves = [action for action in [0, 1, 2, 3] if env.is_move_legal(action)]
     return random.choice([0, 1, 2, 3]) # Choose a random action
     
     # You can submit this random agent to evaluate the performance of a purely random strategy.
 
 # if __name__ == "__main__":
+    env = Game2048Env()
+
+    state = env.reset()
+    env.render()
+
+    done = False
+    while not done:
+        action = get_action(state, env.score)
+        state, reward, done, _ = env.step(action)
+        env.render(action=action)
 #     game = Game2048Env()
 #     game.run()
