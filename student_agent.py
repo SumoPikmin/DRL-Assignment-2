@@ -237,4 +237,6 @@ def get_action(state, score):
     
     # You can submit this random agent to evaluate the performance of a purely random strategy.
 
-
+# if __name__ == "__main__":
+#     game = Game2048Env()
+#     game.run()
